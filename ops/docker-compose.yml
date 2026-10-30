@@ -62,9 +62,10 @@ services:
     command: ["npm", "run", "seed"]
     environment:
       DATABASE_URL: postgres://filspay:filspay_dev_password@postgres:5432/filspay?sslmode=disable
+      WEBHOOK_SECRET_ENCRYPTION_KEY: "szCxdB/RwyKBaaeGuDZqENay0wFUBh4Panx54RAm+ps="
     depends_on:
       postgres:
-        condition: service_healthy
+        condition: service_healthy  
 
   api:
     build:
@@ -82,6 +83,8 @@ services:
       # onboarding to a single password instead of provisioning per-service
       # grants by hand.
       DATABASE_URL: postgres://filspay:filspay_dev_password@postgres:5432/filspay?sslmode=disable
+      WEBHOOK_SECRET_ENCRYPTION_KEY: "szCxdB/RwyKBaaeGuDZqENay0wFUBh4Panx54RAm+ps="
+
       # TODO(YA, Jan): give the api its own role before anything is hosted.
       SETTLEMENT_INTERNAL_URL: http://settlement:8091
     depends_on:
