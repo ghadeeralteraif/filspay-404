@@ -6,5 +6,8 @@ export default defineConfig({
   // FH: a proxy to :3000 would avoid the CORS/cookie dance, claude suggested it
   server: {
     port: 5173,
+    proxy: {
+      "/v1": "http://localhost:3000",
+    }
   },
 });
