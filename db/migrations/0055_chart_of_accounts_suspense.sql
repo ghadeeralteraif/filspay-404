@@ -1,6 +1,6 @@
 -- Additional suspense accounts for future reconciliation lanes.
 
-INSERT INTO chart_of_accounts (code, name, account_type, description)
+INSERT INTO chart_of_accounts (id, name, kind)
 VALUES
   ('fx_rounding_difference', 'FX Rounding Difference', 'suspense',
    'Captures rounding differences between fils and scheme-file BD amounts.'),
